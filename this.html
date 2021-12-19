@@ -1,10 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>this practice</title>
 </head>
 <body>
-$END$
+    <button id="button">Button</button>
+
+<script>
+//  1. 전역함수에서 사용
+    console.log(1, this);  // window
+
+//  2. Object 내에서 사용
+    let obj = {
+      data:'kim',
+      func:function(e) {
+        console.log(2, this);
+      }
+    }
+    obj.func();     // obj
+
+
+//  3. constructor 내에서 사용
+    function machine() {
+      this.name = 'kim';
+    }
+    let object = new machine();
+
+//  4. event listener 내에서 사용
+    obj.func();
+    document.getElementById('button').addEventListener('click', function (e) {
+      console.log(this);        // button
+      console.log(e.currentTarget); // button
+      let arr = [1,2,3];
+      arr.forEach(function() {
+        console.log(this);      // window
+      });
+    });
+
+    let new_obj = {
+      names: ['kim', 'lee', 'park'],
+      function: function (){
+        console.log(this);  // new_obj
+        new_obj.names.forEach(function () {
+          console.log(this);    // window
+        });
+      },
+      func: function () {
+        new_obj.names.forEach(() => {
+          console.log(this);    // new_obj
+        });
+      }
+    }
+    new_obj.function();
+    new_obj.func();
+</script>
 </body>
 </html>

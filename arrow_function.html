@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arrow Function Practice</title>
+</head>
+<body>
+    <button id="button">Button</button>
+    <button id="버튼">Q3 버튼임</button>
+<script>
+  let func = a => a + 5;
+  console.log(func(10));
+  [1,2,3,4].forEach(a=>console.log(a));
+  document.getElementById('button').addEventListener('click', (e) => {
+    console.log(e.currentTarget);
+  });
+
+  let object = {
+    function: () => {console.log(this)}
+  }
+  object.function();
+
+
+
+  // Q1
+  console.log('Q1')
+  let 사람 = {
+    name: '손흥민',
+    sayHi: function () {
+      console.log('안녕 나는 '+ this.name)
+    },
+    sayHello: () => {
+      console.log('안녕 나는 '+ this.name)
+    },
+  }
+
+  사람.sayHi();       // 안녕 나는 손흥민
+  사람.sayHello();    // 안녕 나는 (X)
+
+
+
+  // Q2
+  console.log('Q2');
+  let 데이터 = {
+    data: [1,2,3,4,5]
+  }
+
+  데이터.sumAll = function() {
+    let result = 0;
+    this.data.forEach((e) => {
+      result += e;
+    });
+    console.log(result)
+  }
+
+  데이터.sumAll();
+
+
+
+  // Q3
+  console.log('Q3');
+  document.getElementById('버튼').addEventListener('click', function () {
+    setTimeout(() =>{
+      console.log(this.innerHTML);
+    }, 1000);
+  })
+
+</script>
+</body>
+</html>
