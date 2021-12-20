@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Variables</title>
+</head>
+<body>
+
+<script>
+    let name = 'kim';
+    const last_name = 'kim';
+
+    const person = {name: 'Kim'};
+    person.name = 'Lee';
+    console.log(person.name);
+    Object.freeze(person);  // 변경불가 만들기
+    console.log(person.name);
+
+
+</script>
+
+</body>
+</html>
