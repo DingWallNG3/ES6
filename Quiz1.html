@@ -6,8 +6,22 @@
 </head>
 <body>
 
+    <div style="display: none;">모달창0</div>
+    <div style="display: none;">모달창1</div>
+    <div style="display: none;">모달창2</div>
+    <button>버튼0</button>
+    <button>버튼1</button>
+    <button>버튼2</button>
 
 <script>
+  var buttons = document.querySelectorAll('button');
+  var modals = document.querySelectorAll('div');
+
+  for (let i = 0; i < 3; i++){
+    buttons[i].addEventListener('click', () => {
+      modals[i].style.display = 'block';
+    });
+  }
     // func();
     // function func() {
     //   console.log(안녕);
@@ -25,6 +39,10 @@
     window.a = 3;
     window.b = 4;
     console.log(a + b);
+
+    for (let i = 1; i < 6; i++){
+      setTimeout(() => {console.log(i);}, 1000 * i);
+    }
 </script>
 </body>
 </html>
