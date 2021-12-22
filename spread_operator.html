@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread Operator</title>
+</head>
+<body>
+
+    <script>
+        // EX 1 - Array 펼치기
+        let arr = ['hello', 'world'];
+        console.log(...arr);
+        // console.log(arr[0], arr[1]);
+
+        // EX 2 - 문자열 펼치기
+        let word = 'hello';
+        console.log(...word);
+        // word.forEach((e) => {console.log(e)});
+
+        // EX 3 - Array 합치기
+        var a = [1,2,3];
+        var b = [4,5];
+        var c = [...a, ...b];
+        console.log(...c);
+
+        // EX 4 - Deep Copy
+        var b = a;
+        a[3] = 4;
+        console.log('a: ',a, 'b: ', b);
+
+        var a = [1,2,3];
+        var b = [...a];
+        a[3] = 4;
+        console.log('a: ',a, 'b: ', b);
+
+        // EX 5 - Object
+        var o1 = {a : 1, b : 2};
+        var o2 = {...o1, c : 3};
+        console.log(o2);
+
+        var o3 = {a :2, ...o1}; // o1의 a가 뒤에서 선언되므로 값이 1로 바뀜.
+        console.log(o3);
+
+        var o4 = {...o1, b : 10};
+        console.log(o4);    // b : 10 이 뒤에 선언되므로 값이 10으로 바뀜.
+    </script>
+    
+</body>
+</html>
