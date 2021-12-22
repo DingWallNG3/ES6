@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function add(a, b = 10 * a) {
+        return a + b;
+      }
+      console.log(add(1));
+
+      function func(a, b, c) {
+        for (let i = 0; i < arguments.length; i++) {
+          console.log(arguments[i]);
+        }
+      }
+      func(1, 2, 3);
+
+      function func_es6(...rest) {
+        // rest parameter
+        rest.forEach(function (e) {
+          console.log("arr:", e);
+        });
+      }
+
+      let arr = [];
+      for (let i = 0; i < 15; i++) {
+        arr[i] = 2 * i + 1;
+      }
+      console.log(arr);
+      func_es6(...arr);
+    </script>
+  </body>
+</html>

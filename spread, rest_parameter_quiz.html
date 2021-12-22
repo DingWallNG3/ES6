@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spread, rest_parameter_quiz</title>
+  </head>
+  <body>
+    <script>
+      // quiz 1
+      let a = [1, 2, 3];
+      let b = "김밥";
+      let c = [...b, ...a];
+      console.log(c);
+
+      // quiz 2
+      let a2 = [1, 2, 3];
+      let b2 = ["you", "are"];
+      let c2 = function (a, b) {
+        console.log([[...a], ...[...b]][1]);
+      };
+      c2(a2, b2);
+
+      // quiz 3
+      function function3(a = 5, b = a * 2) {
+        console.log(a + b);
+        return 10;
+      }
+      function3(3);
+
+      // quiz 4
+      function function4(a = 5, b = a * 2) {
+        console.log(a + b);
+      }
+      function4(undefined, undefined);
+
+      // quiz 5
+      function array(...nums) {
+        return nums;
+      }
+      let newArray = array(1, 2, 3, 4, 5);
+      console.log(newArray);
+
+      // quiz 6
+      let numbers = [2, 3, 4, 5, 6, 1, 3, 2, 5, 5, 4, 6, 7];
+      console.log(Math.max(...numbers));
+
+      //quiz 7
+      function sortString(word) {
+        return [...word].sort();
+      }
+      console.log(sortString("bear"));
+
+      // quiz 8
+      function countLetters(word) {
+        let result = {};
+        [...word].sort().forEach((e) => {
+          if (result[e] >= 1) result[e]++;
+          else result[e] = 1;
+        });
+        return result;
+      }
+      console.log(countLetters("aacbbb"));
+    </script>
+  </body>
+</html>
